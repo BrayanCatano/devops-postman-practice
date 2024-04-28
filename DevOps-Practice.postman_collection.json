@@ -1,0 +1,18 @@
+{
+	"info": {
+		"_postman_id": "5f1055a6-3556-4e23-9da5-1177d7cd4bd0",
+		"name": "DevOps-Practice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25456886"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
