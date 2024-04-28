@@ -15,5 +15,5 @@ jobs:
         uses: docker-practice/actions-setup-docker@master
       - name: Run Postman Collection v2
         run: |
-          collectionPath="/home/runner/work/DevopsIItests/DevopsIItests"
+          collectionPath="/home/runner/work/Devops-newman/practice1"
           docker run -v $collectionPath:/etc/newman -t postman/newman:latest run "DevOps-Practice.postman_collection.json" --reporters="cli"
