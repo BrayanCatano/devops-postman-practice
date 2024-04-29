@@ -1,4 +1,4 @@
- name: NemanTest
+name: NemanTest
 
 on: [push]
 
@@ -16,9 +16,9 @@ jobs:
         uses: actions/checkout@v3
         
       - name: Run Postman Collection v2
-       uses: addnab/docker-run-action@v3
-       with:
-         image: postman/newman:latest
-         run: |
-           docker run -v ${{ github.workspace }}:/etc/newman -t postman/newman:latest run "DevOps-Practice.postman_collection.json" --reporters="cli"
+        uses: addnab/docker-run-action@v3
+        with:
+          image: postman/newman:latest
+          run: |
+            docker run -v ${{ github.workspace }}:/etc/newman -t postman/newman:latest run "DevOps-Practice.postman_collection.json" --reporters="cli"
     
