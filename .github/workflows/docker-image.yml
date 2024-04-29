@@ -19,6 +19,7 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
           image: postman/newman:latest
+          options: -v ${{ github.workspace }}:/etc/newman
           run: |
-            newman run -v ${{ github.workspace }}:/etc/newman "DevOps-Practice.postman_collection.json" --reporters="cli"
+            newman run "DevOps-Practice.postman_collection.json" --reporters="cli"
           
