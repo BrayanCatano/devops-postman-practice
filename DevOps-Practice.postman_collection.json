@@ -2,15 +2,52 @@
 	"info": {
 		"_postman_id": "5f1055a6-3556-4e23-9da5-1177d7cd4bd0",
 		"name": "DevOps-Practice",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "25456886"
 	},
 	"item": [
 		{
-			"name": "New Request",
+			"name": "storage-service-test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"status code is 200ok\", function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"}\r",
+							")\r",
+							"pm.test(\"name is abc\", function () {\r",
+							"    pm.expect(pm.response.json()[0].name).to.eql(\"abc\");\r",
+							"}\r",
+							")\r",
+							"pm.test(\"response contains an id\", function () {\r",
+							"    pm.expect(pm.response.json()[0]._id).to.exist;\r",
+							"}\r",
+							")\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"nombre_carpeta\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://172.210.69.41/api/storage/db/folders/null"
 			},
 			"response": []
 		}
