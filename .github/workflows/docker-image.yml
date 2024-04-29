@@ -20,5 +20,5 @@ jobs:
         with:
           image: postman/newman:latest
           run: |
-            docker run -v ${{ github.workspace }}:/etc/newman -t postman/newman:latest run "DevOps-Practice.postman_collection.json" --reporters="cli"
-    
+            newman run -v ${{ github.workspace }}:/etc/newman -t postman/newman:latest run "DevOps-Practice.postman_collection.json" --reporters="cli"
+          
