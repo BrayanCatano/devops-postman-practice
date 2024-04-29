@@ -1,4 +1,4 @@
-name: Neman Test
+ name: Neman Test
 
 on:
   push:
@@ -8,13 +8,17 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
+    services:
+      docker:
+        image: docker:dind
+        options: --privileged
 
     steps:
-      - uses: actions/checkout@v4
-      - name: Install Docker
-        uses: docker-practice/actions-setup-docker@master
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
       - name: Run Postman Collection v2
         run: |
-          collectionPath="/home/runner/work/Devops-newman/practice1"
-          docker run -v $collectionPath:/etc/newman -t postman/newman:latest run DevOps-Practice.postman_collection.json --reporters="cli"
+          docker run -v ${{ github.workspace }}:/etc/newman -t postman/newman:latest run "DevOps-Practice.postman_collection.json" --reporters="cli"
     
